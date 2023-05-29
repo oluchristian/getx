@@ -69,11 +69,26 @@ class ShoppingPage extends StatelessWidget {
                     });
               }),
             ),
-            Text('Total Amount: '),
+            GetX<CartController>(builder: (controller) {
+              return Text('Total Amount: ${controller.totalPrice}');
+            }),
             SizedBox(
               height: 100,
             ),
           ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        backgroundColor: Colors.amber,
+        label: GetX<CartController>(
+          builder: (controller) {
+            return Text(controller.count.toString(), style: TextStyle(color: Colors.black, fontSize: 24,),);
+          }
+        ),
+        icon: Icon(
+          Icons.add_shopping_cart_rounded,
+          color: Colors.black,
         ),
       ),
     );
